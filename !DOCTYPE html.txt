@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Business Coach Training - Get Certified & Build Your Premium Practice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero .cta-button {
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            margin-top: 1rem;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section:nth-child(even) {
+            background: white;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2a5298;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #2a5298;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #ff6b35;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2a5298;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #2a5298;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Founder Note */
+        .founder-note {
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .founder-note h2 {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Small Business Coach Training</div>
+                <nav>
+                    <ul>
+                        <li><a href="#training">Training Programs</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </nav>
+                <a href="#cta" class="cta-button">Book A Call</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Finally... The Professional Training That Turns You Into The Small Business Coach Every Entrepreneur Desperately Needs (And Will Pay Premium Rates For)</h1>
+                <p class="subtitle">Discover the ICF-accredited system that's helped 1,000+ professionals build 6-figure coaching practices while transforming struggling businesses into thriving enterprises</p>
+                <a href="#cta" class="cta-button">Get Your Free Blueprint Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualization Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Picture This: You're Booked Solid With High-Paying Clients Who Actually Thank You For Transforming Their Businesses</h2>
+            <p>Imagine waking up to a calendar filled with $300-500 per session clients who see you as their secret weapon for business success. No more struggling to find clients or justifying your rates—you're the go-to expert small business owners seek out and gladly pay premium fees.</p>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Over 1,000 Professionals Have Already Discovered Why This Is The #1 Small Business Coaching Certification</h2>
+            <p>Our graduates aren't just getting certified—they're building thriving practices and making real impact. From corporate executives to career changers, they're using our ICF-accredited system to create the professional life they've always wanted while helping small businesses succeed.</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" id="cta" style="background: linear-gradient(135deg, #ff6b35 0%, #f9ca24 100%); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="color: white;">Get Instant Access To Our Free "Small Business Coach Success Blueprint" (Usually $297)</h2>
+            <p>Download our comprehensive guide that reveals exactly how to position yourself as the small business coach every entrepreneur needs, including our proven client acquisition strategies and fee structure templates.</p>
+            <a href="#" class="cta-button" style="background: white; color: #ff6b35; font-size: 1.2rem; padding: 15px 30px;">DOWNLOAD YOUR FREE BLUEPRINT NOW</a>
+            <p style="margin-top: 1rem; opacity: 0.9;">No spam. Just proven strategies that work. Join 5,000+ professionals already using these methods.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="training">
+        <div class="container">
+            <h2>Here's Everything You Get In This Game-Changing Blueprint</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Instant Authority Formula</h3>
+                    <p><strong>How to</strong> position yourself as the "must-have" coach for any small business owner, even if you've never owned a business yourself (Page 12)</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Premium Rate Structure</h3>
+                    <p><strong>The secret to</strong> commanding $300-500 per session rates from day one—our "Instant Authority Formula" that establishes your credibility faster than a Harvard MBA (Page 8)</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Market Opportunity</h3>
+                    <p><strong>Why</strong> 95% of small businesses fail within 5 years... and how you become the coach who prevents this disaster while building your own 6-figure practice (Page 3)</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Reverse Psychology Method</h3>
+                    <p><strong>What</strong> successful coaches never tell you about landing high-paying clients: The method that makes prospects chase you instead of you chasing them (Page 15)</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Conversation Framework</h3>
+                    <p><strong>The single</strong> most important conversation framework that transforms skeptical business owners into loyal, long-term clients who refer their friends (Page 22)</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Assessment Tool</h3>
+                    <p><strong>PLUS</strong> - The complete "52 Core Competencies" assessment tool that instantly reveals exactly where any business is bleeding money (worth $497 alone)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <h2>Real Results From Real Coaches Who Started Where You Are Now</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"I went from struggling to find clients to booking $8,000 months within 90 days. The systematic approach gave me the confidence to charge what I'm worth."</p>
+                    <p class="testimonial-author">- Tracy K., Toronto</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Even without business experience, I'm now coaching CEOs and charging $450 per session. The tools and systems make me look like the expert I've become."</p>
+                    <p class="testimonial-author">- Vic L., Systems Business Coach®</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The learning from this course has been immediately useful, effective and stays true to a coach approach. I encourage any certified coaches working with small businesses to take this step."</p>
+                    <p class="testimonial-author">- Annette Siewertsen, CEO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+        <div class="container">
+            <h2>Your Questions Answered</h2>
+            <div class="faq-item">
+                <div class="faq-question">Q: What if I don't have business experience?</div>
+                <div class="faq-answer">A: Our system is designed for professionals from all backgrounds—consultants, bankers, marketers, and career changers are all succeeding with our methodology.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: How quickly can I start earning?</div>
+                <div class="faq-answer">A: Many of our graduates land their first paying clients within 30-60 days of completing the foundation training.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: Is this just theory or practical application?</div>
+                <div class="faq-answer">A: This is field-tested methodology used by coaches in 40+ countries, with over 15 years of real-world results.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Note Section -->
+    <section class="founder-note" id="about">
+        <div class="container">
+            <h2>A Personal Note From Beverlee Rasmussen, CEC PCC</h2>
+            <p>After 15 years of coaching small business owners and training over 1,000 professionals, I've learned one thing: the world desperately needs more skilled small business coaches.</p>
+            <p>95% of all businesses globally are small businesses, yet most coaches lack the systematic approach needed to truly help them succeed. That's why I created the Systems Business Coach® methodology—to give you the tools, confidence, and structure to make a real difference while building the practice you deserve.</p>
+            <p>This isn't just about getting certified. It's about joining a movement of professionals who understand that small business success drives economic growth and creates better communities for everyone.</p>
+            <p>Your journey starts with this blueprint. Download it now and take the first step toward becoming the coach every small business owner needs.</p>
+            <a href="#cta" class="cta-button">Download Your Free Blueprint Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Small Business Coach Training. All Rights Reserved.</p>
+            <p>Join 5,000+ professionals who've already started their transformation</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to hero section
+        window.addEventListener('scroll', function() {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Add fade-in animation for cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card, .testimonial, .faq-item');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
